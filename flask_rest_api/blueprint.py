@@ -36,6 +36,7 @@ from .utils import deepupdate, load_info_from_docstring
 from .arguments import ArgumentsMixin
 from .response import ResponseMixin
 from .pagination import PaginationMixin
+from .etag import EtagMixin
 from .exceptions import EndpointMethodDocAlreadyRegistedError
 
 
@@ -45,7 +46,8 @@ HTTP_METHODS = [
 
 
 class Blueprint(
-        FlaskBlueprint, ArgumentsMixin, ResponseMixin, PaginationMixin):
+        FlaskBlueprint,
+        ArgumentsMixin, ResponseMixin, PaginationMixin, EtagMixin):
     """Blueprint that registers info in API documentation"""
 
     def __init__(self, *args, **kwargs):
